@@ -21,7 +21,7 @@ app.get(`/break-timeline`, async (req, res) => {
     .findOne({
       where: { id: breakDownID }
     })
-    .timeline();
+    .timeline({ orderBy: { createdAt: 'desc' } });
   console.dir('result : ', result);
   res.json(result);
 });
