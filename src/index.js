@@ -21,7 +21,7 @@ app.get(`/break-timeline`, async (req, res) => {
     .findOne({
       where: { id: breakDownID }
     })
-    .timeline({ orderBy: { createdAt: 'desc' } });
+    .timeline();
   console.dir('result : ', result);
   res.json(result);
 });
@@ -66,4 +66,4 @@ app.get(`/emergency-timeline`, async (req, res) => {
   }
 });
 
-app.listen(9199, () => console.log('🚀 Server ready at: http://localhost:9199'));
+app.listen(5553, () => console.log('🚀 Server ready at: http://localhost:5553'));
