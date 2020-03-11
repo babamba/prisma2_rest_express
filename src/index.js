@@ -1,7 +1,7 @@
-const { PrismaClient } = require('@prisma/client');
-const express = require('express');
-const bodyParser = require('body-parser');
-var cors = require('cors');
+const { PrismaClient } = require("@prisma/client");
+const express = require("express");
+const bodyParser = require("body-parser");
+var cors = require("cors");
 
 const prisma = new PrismaClient();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.get(`/break-timeline`, async (req, res) => {
   const { breakDownID } = req.query;
-  console.log('request id : ', breakDownID);
+  console.log("request id : ", breakDownID);
 
   // const result = await prisma.breakdownTimeLine.findOne({
   //   where: { id: breakDownID }
@@ -22,7 +22,7 @@ app.get(`/break-timeline`, async (req, res) => {
       where: { id: breakDownID }
     })
     .timeline();
-  console.dir('result : ', result);
+  console.dir("result : ", result);
   res.json(result);
 });
 
@@ -53,17 +53,19 @@ app.get(`/emergency`, async (req, res) => {
 
 app.get(`/emergency-timeline`, async (req, res) => {
   const { emergencyId } = req.query;
-  console.log('request id : ', emergencyId);
+  console.log("request id : ", emergencyId);
 
   if (emergencyId !== undefined) {
     const result = await prisma.emergency
       .findOne({
         where: { id: emergencyId }
       })
-      .timeline({ orderBy: { createdAt: 'asc' } });
-    console.dir('result : ', result);
+      .timeline({ orderBy: { createdAt: "asc" } });
+    console.dir("result : ", result);
     res.json(result);
   }
 });
 
-app.listen(9199, () => console.log('🚀 Server ready at: http://localhost:9199'));
+app.listen(5553, () =>
+  console.log("🚀 Server ready at: http://localhost:5553")
+);
