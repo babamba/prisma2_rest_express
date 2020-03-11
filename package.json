@@ -1,18 +1,19 @@
 {
   "name": "intro-to-prisma2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "@prisma/client": "^2.0.0-preview020.3"
-  },
-  "devDependencies": {},
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node prisma/seed",
-    "start": "node index"
+    "start": "node index",
+    "dev": "nodemon --watch src/ src/index.js",
+    "console": "prisma2 studio --experimental",
+    "deploy": "prisma2 migrate save --experimental && prisma2 migrate up --experimental && prisma2 generate"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@prisma/client": "^2.0.0-preview023",
+    "body-parser": "1.19.0",
+    "cors": "^2.8.5",
+    "express": "4.17.1"
+  },
+  "devDependencies": {}
 }

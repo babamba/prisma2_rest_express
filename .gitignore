@@ -109,3 +109,5 @@ dist
 blog/
 
 .DS_Store
+
+.env

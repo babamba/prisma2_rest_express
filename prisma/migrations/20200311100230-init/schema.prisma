@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 model BreakDown {
@@ -15,6 +15,7 @@ model BreakDown {
   lat        String              @default("")
   lng        String              @default("")
   modelId    String              @default("")
+  number     Int                 @default(0)
   repairDate DateTime?
   shop       String              @default("")
   updatedAt  DateTime            @updatedAt
